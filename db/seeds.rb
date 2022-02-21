@@ -35,7 +35,7 @@ User.create!(
   address: "Tokyo"
 )
 
-
+Costume.destroy_all
 4.times do
   Costume.create!(
     name: Faker::Games::Pokemon.name,
@@ -47,6 +47,7 @@ end
 
 
 # Bookings
+Booking.destroy_all
 4.times do
   Booking.create!(
     start_date: Date.today - rand(1..10),
