@@ -2,11 +2,13 @@
 
 
   <% @costumes.each do |costume| %>
-  <div>
+  <div class="index-card">
     <img src="">
-    <p><%= costume.name %></p>
-    <p>¥<%= costume.price %> per day</p>
+    <div class="index-card-infos">
+    <h2><%= costume.name %></h2>
     <p>Size: <%= costume.size %></p>
+    </div>
+    <h2 class="">¥<%= costume.price %> per day</p>
     <p>Location</p>
   </div>
   <% end %>
