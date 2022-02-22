@@ -1,12 +1,12 @@
-.navbar-lewagon {
+.navbar-dank {
   justify-content: space-between;
-  background: white;
+  background: none;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-dank .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-dank .navbar-brand {
+  width: 120px;
 }
