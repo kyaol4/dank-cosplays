@@ -15,8 +15,8 @@ class CostumePolicy < ApplicationPolicy
     end
   end
 
-  def index?
-
+  def index
+    @costumes = policy_scope(Costume).order(created_at: :desc)
   end
 
   def show?
@@ -32,7 +32,7 @@ class CostumePolicy < ApplicationPolicy
   end
 
   def destroy?
-
+    user_is_owner? || user_is_admin?
   end
 
   private
@@ -41,4 +41,7 @@ class CostumePolicy < ApplicationPolicy
     user == record.user
   end
 
+  def user_is_admin?
+    user.admin?
+  end
 end
