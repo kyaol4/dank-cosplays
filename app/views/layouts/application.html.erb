@@ -31,10 +31,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
             <li class="nav-item active">
-              <h4><a class="nav-link px-3" href="#">BROWSE</a></h4>
+              <h4><%= link_to "BROWSE", costumes_path, class:"nav-link px-3" %></h4>
+            </li>
+            <li class="nav-item active">
+              <h4><%= link_to "BOOKED", bookings_path, class:"nav-link px-3" %></h4>
             </li>
             <li class="nav-item">
-              <h4><a class="nav-link px-3" href="#">LIST COSPLAY</a></h4>
+              <h4><a class="nav-link px-3" href="#">COSPLAY OWNERS</a></h4>
             </li>
             <li class="nav-item dropdown px-3">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
