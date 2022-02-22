@@ -1,0 +1,12 @@
+<h1>Index Page</h1>
+
+
+  <% @costumes.each do |costume| %>
+  <div>
+    <img src="">
+    <p><%= costume.name %></p>
+    <p>¥<%= costume.price %> per day</p>
+    <p>Size: <%= costume.size %></p>
+    <p>Location</p>
+  </div>
+  <% end %>

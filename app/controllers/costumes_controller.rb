@@ -5,6 +5,7 @@ class CostumesController < ApplicationController
   end
 
   def show
+    @costume = Costume.find_by(params[:id])
   end
 
   def new
