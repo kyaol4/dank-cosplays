@@ -1,1 +1,37 @@
 <h1>USER BOOKINGS</h1>
+
+    <%# start_date: Date.today - rand(1..10),
+    end_date: Date.today + rand(1..10),
+    status: Booking.statuses.keys.sample,
+    user_id: User.ids.sample,
+    costume_id: Costume.ids.sample %>
+    <div class="container">
+    <%# <% if @bookings.current_user%>
+    <% @bookings.each do |booking| %>
+    <div class="row">
+    <div class="col-12 col-lg-8">
+    <div class="card-category mb-3">
+      <div>
+       <img src="" >
+      </div>
+      <div class="index-card-infos">
+      <div>
+        <h2><%= booking.costume.name %></h2>
+      </div>
+      <div>
+        <p>Start date: <%= booking.start_date %> ~ End date: <%= booking.end_date %></p>
+      </div>
+      </div>
+      <div>
+         <h2 class="">Total: ¥<%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></p>
+      </div>
+      <div>
+        <p><%= link_to "view costume", costume_path(booking.costume) %></p>
+      </div>
+      </div>
+      </div>
+      <%# <% end %> 
+      <% end %>
+      </div>
+   </div>
+  </div>
