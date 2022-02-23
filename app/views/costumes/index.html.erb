@@ -1,17 +1,23 @@
 
+<div class="container d-sm-flex justify-content-start mt-3">
+  <%= link_to "", root_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-5" %>
+  <h2>BROWSING</h2>
+</div>
+
 <div class="container">
-<h1>BROWSING COSPLAYS</h1>
-
-
-  <% @costumes.each do |costume| %>
-  <div class="index-card">
-    <img src="" >
-    <div class="index-card-infos">
-    <h2><%= costume.name %></h2>
-    <p>Size: <%= costume.size %></p>
-    </div>
-    <h2 class="">¥<%= costume.price %> per day</p>
-    <p><%= link_to "view costume", costume_path(costume) %></p>
+  <div class="cards">
+    <% @costumes.each do |costume| %>
+      <div class="index-card">
+        <img src="" >
+        <div class="index-card-infos">
+          <h2><%= costume.name.upcase %></h2>
+          <p>Size: <%= costume.size %></p>
+        </div>
+        <div class="price-card">
+          <h2>¥ <%= costume.price %></h2><p>per day</p>
+          <p><%= link_to "", costume_path(costume), class:"card-link" %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
