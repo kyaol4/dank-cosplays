@@ -1,39 +1,52 @@
-<h1>USER BOOKINGS</h1>
-
-
-
-    <%# start_date: Date.today - rand(1..10),
+<%# start_date: Date.today - rand(1..10),
     end_date: Date.today + rand(1..10),
     status: Booking.statuses.keys.sample,
     user_id: User.ids.sample,
     costume_id: Costume.ids.sample %>
-    <div class="container">
-    <%# <% if @bookings.current_user%>
-    <% @bookings.each do |booking| %>
-    <div class="row">
-    <div class="col-12 col-lg-8">
-    <div class="card-category mb-3">
-      <div>
-       <img src="" >
+<div class="container">
+  <h2>USER BOOKINGS</h2>
+  <%# nav bar %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Confirmed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Completed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Rejected</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All</a>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+        </ul>
       </div>
-      <div class="index-card-infos">
-      <div>
-        <h2><%= booking.costume.name %></h2>
-      </div>
-      <div>
-        <p>Start date: <%= booking.start_date %> ~ End date: <%= booking.end_date %></p>
-      </div>
-      </div>
-      <div>
-         <h2 class="">Total: ¥<%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></p>
-      </div>
-      <div>
-        <p><%= link_to "view costume", booking_path(booking) %></p>
-      </div>
-      </div>
-      </div>
-      <%# <% end %>
-      <% end %>
-      </div>
-   </div>
+    </div>
   </div>
+  <%# <% if @bookings.current_user%>
+  <% @bookings.each do |booking| %>
+    <div class="card-product">
+      <img src="https://picsum.photos/200/300" />
+      <div class="d-flex justify-content-center">
+        <div class="card-product-infos">
+          <h2><%= booking.costume.name %></h2>
+          <p>Start date: <%= booking.start_date %> ~ End date: <%= booking.end_date %></p>
+        </div>
+        <div>
+          <h2>Total: ¥<%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
+        </div>
+      </div>
+      <div>
+        <p><%= link_to "view costume", booking_path(booking), class: 'btn btn-primary' %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
