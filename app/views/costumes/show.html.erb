@@ -1,28 +1,57 @@
-<h2><%= @costume.name %></h2>
-<div class="cards">
-  <div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-trip-infos">
-      <div>
-        <p><%= @costume.size %></p>
+<div class="container d-sm-flex justify-content-start mt-3 ms-5">
+  <%= link_to "", costumes_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+  <h2><%= @costume.name %></h2>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-3">
+          <div class="carousel-item active">
+            <%= image_tag("detective.jpg", class:"d-block w-100") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("football.jpg", class:"d-block w-100") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("pokemonpoker.jpg", class:"d-block w-100") %>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <h2 class="card-trip-pricing"><%= @costume.price%>円</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
-  </div>
-  <div class="card-trip">
-    <%= simple_form_for [@costume, @booking] do |f| %>
-      <h2><%= @costume.name %></h2>
-      <p><%= @costume.size %></p>
-      <p><%= @costume.price%> 円 </p>
-      <%= f.input :start_date, html5: true %>
-      <%= f.input :end_date, html5: true %>
-      <%# <% if policy(costume).user_is_owner? %>
-      <%# <%= f.input :status, collection: Booking.statuses.keys, include_blank: false %>
-      <%# <% end %>
-      <%= f.submit class: 'btn btn-primary mt-2' %>
-    <% end %>
+
+    <div class="col px-5">
+      <div class="card-trip rounded-3 p-3">
+        <div class="container d-flex justify-content-lg-between mb-5">
+          <div class="text-start">
+            <h1><%= @costume.name %></h1>
+            <p>Size: <%= @costume.size %></p>
+          </div>
+          <div class="text-end">
+            <h1>¥ <%= @costume.price %></h1>
+            <p>per day</p>
+          </div>            
+        </div>
+        <div class="container">
+          <p>lorumVelit Lorem amet reprehenderit adipisicing minim enim est in ut aliquip aliqua duis labore. Eu enim laborum pariatur nisi ea et laboris eiusmod. Sunt ex occaecat minim veniam dolor amet ut adipisicing eu adipisicing esse cupidatat. Est incididunt elit excepteur consequat officia velit nisi anim magna qui anim exercitation. Aliquip Lorem in sit velit ad veniam pariatur. Cupidatat culpa esse et nisi. Mollit laborum deserunt sit ullamco ea aliqua aute dolore cillum ex laborum cupidatat.</p>
+        </div>
+        <div class="container my-5 d-grid gap-3 col-12 mx-auto">
+        <%= simple_form_for [@costume, @booking], html: { id: 'simple-form' } do |f| %>
+          <%= f.input :start_date, html5: true %>
+          <%= f.input :end_date, html5: true %>
+          <%= f.submit "Send Booking Request", class: 'btn btn-primary mt-2 p-3 d-inline-block' %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
-<hr>
-<%= link_to 'Back to costumes list', costumes_path %>
