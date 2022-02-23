@@ -1,5 +1,7 @@
 class CostumesController < ApplicationController
   before_action :set_costume, only: [:show, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @costumes = policy_scope(Costume).order(created_at: :desc)
   end
@@ -38,6 +40,6 @@ class CostumesController < ApplicationController
   end
 
   def costume_params
-    params.require(:costume).permit(:name, :size, :price)
+    params.require(:costume).permit(:name, :size, :price, :photo)
   end
 end

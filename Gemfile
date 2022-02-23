@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'autoprefixer-rails', '10.2.5'
+gem 'cloudinary', '~> 1.16.0'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
