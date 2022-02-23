@@ -18,3 +18,13 @@ class BookingPolicy < ApplicationPolicy
     user_is_owner? || user_is_admin?
   end
 end
+
+private
+
+def user_is_owner?
+  user == record.user
+end
+
+def user_is_admin?
+  user.admin?
+end
