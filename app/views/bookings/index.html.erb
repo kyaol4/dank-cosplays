@@ -26,11 +26,11 @@
          <h2 class="">Total: ¥<%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></p>
       </div>
       <div>
-        <p><%= link_to "view costume", costume_path(booking.costume) %></p>
+        <p><%= link_to "view costume", booking_path(booking) %></p>
       </div>
       </div>
       </div>
-      <%# <% end %> 
+      <%# <% end %>
       <% end %>
       </div>
    </div>

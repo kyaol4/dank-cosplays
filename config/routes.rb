@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :costumes, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:index, :update]
+  resources :bookings, only: [:index, :update, :show]
   namespace :owner do # puts word owner in fron of bookings_index
     resources :bookings, only: :index
   end
