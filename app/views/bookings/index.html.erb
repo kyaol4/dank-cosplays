@@ -4,7 +4,10 @@
     user_id: User.ids.sample,
     costume_id: Costume.ids.sample %>
 <div class="container">
-  <h2>USER BOOKINGS</h2>
+  <div class="d-sm-flex justify-content-start mt-3 ms-5">
+    <%= link_to "", root_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+    <h2>USER BOOKINGS</h2>
+  </div>
   <%# nav bar %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
@@ -35,18 +38,18 @@
   <% @bookings.each do |booking| %>
     <div class="card-product">
       <img src="https://picsum.photos/200/300" />
-      <div class="d-flex justify-content-center">
-        <div class="card-product-infos">
+      <div>
+        <div class="card-product-infos d-flex justify-content-evenly">
           <h2><%= booking.costume.name %></h2>
-          <p>Start date: <%= booking.start_date %> ~ End date: <%= booking.end_date %></p>
-        </div>
-        <div>
           <h2>Total: ¥<%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
         </div>
+        <div>
+          <p>Start date: <%= booking.start_date %>~ <br>
+            End date: <%= booking.end_date %></p>
+        </div>
+        <div>
+          <p><%= link_to "view costume", booking_path(booking), class: 'btn btn-primary d-inline-block' %></p>
+        </div>
       </div>
-      <div>
-        <p><%= link_to "view costume", booking_path(booking), class: 'btn btn-primary' %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
