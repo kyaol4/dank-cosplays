@@ -3,6 +3,7 @@
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     margin: 20px;
+    position: relative;
   }
 
   .index-card > img {
@@ -25,20 +26,32 @@
 
   .index-card .index-card-infos {
     padding: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
   }
 
-  .index-card .index-card-sizing {
-
+  .index-card .price-card {
+    text-align: end;
+    padding-right: 16px;
+    padding-bottom: 8px;
   }
 
 // cards
 
 .cards {
   display: flex;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 // card trip
