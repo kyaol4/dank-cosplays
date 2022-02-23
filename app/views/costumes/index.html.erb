@@ -5,7 +5,7 @@
 
   <% @costumes.each do |costume| %>
   <div class="index-card">
-    <img src="" >
+    <img src="<%=costume.image_url%>">
     <div class="index-card-infos">
     <h2><%= costume.name %></h2>
     <p>Size: <%= costume.size %></p>
