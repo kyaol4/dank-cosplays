@@ -5,8 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+# require 'open-uri'
+# require 'json'
 require 'faker'
+
+# url = 'http://tmdb.lewagon.com/movie/top_rated'
+# response = JSON.parse(URI.open(url).read)
+# response['results'].each do |movie_hash|
+# p movie_hash
+
 # Users
 User.destroy_all
 puts "Creating all the users......"
@@ -35,15 +42,92 @@ User.create!(
   address: "Tokyo"
 )
 
+puts "destroying costumes"
 Costume.destroy_all
-4.times do
+puts "creating costumes"
+# 4.times do
   Costume.create!(
-    name: Faker::Games::Pokemon.name,
+    name: "Pikachu Cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample
+    user_id: User.ids.sample,
+    image_url:"https://cdn.shopify.com/s/files/1/1282/4381/products/product-image_13ff26c5-5711-49d3-af2a-2a7e041d8ac8_1024x1024.jpg?v=1463839538",
   )
-end
+
+  Costume.create!(
+    name: "Zelda Cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://media.istockphoto.com/photos/princess-zelda-cosplay-picture-id855474834",
+  )
+
+  Costume.create!(
+    name: "Goku Cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://i.pinimg.com/originals/1a/6f/38/1a6f384cde2b5a40234de474e935c12e.jpg",
+  )
+
+  Costume.create!(
+    name: "Ichigo Cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.fanpop.com%2Fclubs%2Fbleach-anime%2Fimages%2F31630046%2Ftitle%2Fbleach-cosplay-photo&psig=AOvVaw0VlX4cSyyAxkXJkbFcmtu6&ust=1645673867336000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMjnjovzlPYCFQAAAAAdAAAAABAE",
+  )
+
+  Costume.create!(
+    name: "Kimetsu Cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://cdn.worldcosplay.net/293284/orwphsnofmqehzqhmzqmvvpqwjsimtplodevsmdz-740.jpg",
+  )
+
+  Costume.create!(
+    name: "Cell Cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://64.media.tumblr.com/37e42870545e8b71d02cb5f1c1c9cbf2/tumblr_opdw9dMRy51upiu8jo1_1280.jpg",
+  )
+
+  Costume.create!(
+    name: "Attack on Titan - Bread",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/10/Sasha-Braus-Attack-on-Titan-Cosplay.jpg?q=50&fit=crop&w=740&h=489&dpr=1.5",
+  )
+
+  Costume.create!(
+    name: "Spider-man cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://i.etsystatic.com/19750816/r/il/95ae9e/3305956735/il_fullxfull.3305956735_b5yu.jpg",
+  )
+
+  Costume.create!(
+    name: "Thor cosplay",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://cdn.costumewall.com/wp-content/uploads/2015/10/thor.jpg",
+  )
+
+  Costume.create!(
+    name: "Wolverine",
+    size: ["S", "M", "L"].sample,
+    price: rand(1000..10_000),
+    user_id: User.ids.sample,
+    image_url:"https://i.kym-cdn.com/photos/images/original/001/419/425/b5a.jpg",
+  )
+    puts "created costumes"
+
+# end
 
 
 # Bookings

@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:create, :update]
   def index
-    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = policy_scope(Booking).order(end_date: :desc)
+    # @bookings_as_owner = current_user.bookings_as_owner.order(end_date: :desc)
+    # raise
   end
 
   def create
