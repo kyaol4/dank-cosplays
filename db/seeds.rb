@@ -22,25 +22,25 @@ User.create!(
   email: "tobymanley1990@gmail.com",
   password: "password",
   name: "Toby",
-  address: "4-2-8 Shibakoen, Minato City, Tokyo 105-0011"
+  address: "4-2-8 Shibakoen, Minato"
 )
 User.create!(
   email: "saorimita4@gmail.com",
   password: "password",
   name: "Saori",
-  address: "2-21-1 Shibuya, Shibuya City, Tokyo 150-8510"
+  address: "2-21-1 Shibuya, Shibuya"
 )
 User.create!(
   email: "r.winstonc@gmail.com",
   password: "password",
   name: "Winston",
-  address: "2-11-3 Meguro, Meguro City, Tokyo 152-0063"
+  address: "2-11-3 Meguro, Meguro"
 )
 User.create!(
   email: "kyaol4@gmail.com",
   password: "password",
   name: "Dongwook",
-  address: "3-5-1 Marunouchi, Chiyoda City, Tokyo 100-0005"
+  address: "3-5-1 Marunouchi, Chiyoda"
 )
 
 puts "destroying costumes"
