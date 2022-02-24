@@ -1,6 +1,6 @@
 <div class="container d-sm-flex justify-content-start mt-3 ms-5">
   <%= link_to "", costumes_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
-  <h2><%= @costume.name %></h2>
+  <h2>VIEWING: <%= @costume.name.upcase %></h2>
 </div>
 <div class="container mt-5">
   <div class="row">
@@ -47,7 +47,7 @@
         <div class="container d-flex justify-content-lg-between mb-5">
 
           <div class="text-start">
-            <h1><%= @costume.name %></h1>
+            <h1><%= @costume.name.upcase %></h1>
             <p>Size: <%= @costume.size %></p>
           </div>
           <div class="text-end">
