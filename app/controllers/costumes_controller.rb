@@ -4,6 +4,12 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = policy_scope(Costume).order(created_at: :desc)
+    if params[:query].present?
+      @costumes = Costume.search_by_name(params[:query])
+      # Costume.where(name: params[:query])
+    else
+      @costumes = Costume.all
+    end
   end
 
   def show
