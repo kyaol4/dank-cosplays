@@ -1,6 +1,6 @@
 .index-card {
     overflow: hidden;
-    background: white;
+    background: none;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     margin: 20px;
     position: relative;
@@ -13,14 +13,14 @@
   }
 
   .index-card h2 {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
     margin: 0;
   }
 
   .index-card p {
     font-size: 12px;
-    opacity: .7;
+    opacity: .9;
     margin: 0;
   }
 
@@ -30,15 +30,21 @@
     padding-bottom: 8px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items:flex-start;
     position: relative;
+    color: rgba(240,240,240,.8)
   }
 
-  .index-card .price-card {
+  .index-card-infos .price-card {
     text-align: end;
-    padding-right: 16px;
-    padding-bottom: 8px;
+    color: rgba(240,240,240,.8)
   }
+
+  .index-card-infos .info-card {
+    text-align: start;
+    color: rgba(240,240,240,.8)
+  }
+
 
 // cards
 

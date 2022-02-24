@@ -1,5 +1,5 @@
 <div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>YOUR BOOKINGS</h2>
 </div>
 
@@ -32,9 +32,11 @@
       </div>
     </div>
   </div>
+</div>
 
+<div>
   <% @bookings.each do |booking| %>
-    <div class="card-product mt-3 ms-3">
+    <div class="container">
       <img src="https://picsum.photos/200/300" />
 
         <div class="grid w-100 h-80">
@@ -58,5 +60,4 @@
         </div>
       <% end %>
     </div>
-  </div>
 </div>
