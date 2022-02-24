@@ -7,7 +7,8 @@ class CostumesController < ApplicationController
     @markers = @costumes.geocoded.map do |costume|
       {
         lat: costume.latitude,
-        lng: costume.longitude
+        lng: costume.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { costume: costume })
       }
     end
 
