@@ -2,7 +2,6 @@
   <%= link_to "", costumes_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
   <h2><%= @costume.name %></h2>
 </div>
-
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6">
@@ -27,7 +26,7 @@
               <%= cl_image_tag(@costume.photo.key, class:"d-block w-100") %>
             <% else %>
               <%= image_tag "https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=" %>
-            <% end %>              
+            <% end %>
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -40,7 +39,6 @@
         </button>
       </div>
     </div>
-
     <div class="col px-5">
       <div class="card-trip rounded-3 p-3">
           <div class="container text-start mt-3">
@@ -55,19 +53,23 @@
           <div class="text-end">
             <h1>¥ <%= @costume.price %></h1>
             <p>per day</p>
-          </div>            
+          </div>
         </div>
         <div class="container">
           <p>lorumVelit Lorem amet reprehenderit adipisicing minim enim est in ut aliquip aliqua duis labore. Eu enim laborum pariatur nisi ea et laboris eiusmod. Sunt ex occaecat minim veniam dolor amet ut adipisicing eu adipisicing esse cupidatat. Est incididunt elit excepteur consequat officia velit nisi anim magna qui anim exercitation. Aliquip Lorem in sit velit ad veniam pariatur. Cupidatat culpa esse et nisi. Mollit laborum deserunt sit ullamco ea aliqua aute dolore cillum ex laborum cupidatat.</p>
         </div>
         <div class="container my-5 d-grid gap-3 col-12 mx-auto">
-        <%= simple_form_for [@costume, @booking], html: { id: 'simple-form' } do |f| %>
-          <%= f.input :start_date, html5: true %>
-          <%= f.input :end_date, html5: true %>
-          <%= f.submit "Send Booking Request", class: 'btn btn-primary mt-2 p-3 d-inline-block' %>
-        <% end %>
+          <%= simple_form_for [@costume, @booking], html: { id: 'simple-form' } do |f| %>
+            <%= f.input :start_date, html5: true %>
+            <%= f.input :end_date, html5: true %>
+            <%= f.submit "Send Booking Request", class: 'btn btn-primary mt-2 p-3 d-inline-block' %>
+          <% end %>
+        </div>
       </div>
     </div>
-
   </div>
-</div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>

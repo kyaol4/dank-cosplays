@@ -4,6 +4,11 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = policy_scope(Costume).order(created_at: :desc)
+    @markers = @costumes.geocoded.map do |costume|
+      {
+        lat: costume.latitude,
+        lng: costume.longitude
+      }
     if params[:query].present?
       @costumes = Costume.search_by_name(params[:query])
       # Costume.where(name: params[:query])
@@ -24,6 +29,7 @@ class CostumesController < ApplicationController
   def create
     @costume = Costume.new(costume_params)
     @costume.user = current_user
+    @costume.address = @costume.user.address
     authorize @costume
 
     if @costume.save
