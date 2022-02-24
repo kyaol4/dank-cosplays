@@ -1,13 +1,15 @@
 .banner {
   background-image: url(kakashi.jpg);
   background-size: cover;
-  padding: 300px 0px;
+  padding: 250px 0px;
+  height: 90vh;
   object-fit: cover;
   color: white;
+  letter-spacing: 3px;
 }
 
 .banner h1 {
-  font-size: 6rem;
-  text-shadow: 3px 2px 2px rgba(30,30,30,0.5)
+  font-size: 12rem;
+  text-shadow: 3px 2px 2px rgba(30,30,30,0.3)
 }
 
