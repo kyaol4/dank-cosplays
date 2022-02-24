@@ -4,6 +4,12 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = policy_scope(Costume).order(created_at: :desc)
+    @markers = @costumes.geocoded.map do |costume|
+      {
+        lat: costume.latitude,
+        lng: costume.longitude
+      }
+    end
   end
 
   def show
@@ -18,6 +24,7 @@ class CostumesController < ApplicationController
   def create
     @costume = Costume.new(costume_params)
     @costume.user = current_user
+    @costume.address = @costume.user.address
     authorize @costume
 
     if @costume.save
