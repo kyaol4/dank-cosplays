@@ -10,6 +10,7 @@ class CostumesController < ApplicationController
         lng: costume.longitude
       }
     end
+
     if params[:query].present?
       @costumes = Costume.search_by_name(params[:query])
       # Costume.where(name: params[:query])
@@ -20,6 +21,12 @@ class CostumesController < ApplicationController
 
   def show
     @booking = Booking.new
+    # @marker = @costume.geocoded.map do |costume|
+    #   {
+    #     lat: costume.latitude,
+    #     lng: costume.longitude
+    #   }
+    # end
   end
 
   def new
