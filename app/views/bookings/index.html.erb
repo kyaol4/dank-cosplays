@@ -2,16 +2,13 @@
   <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>YOUR BOOKINGS</h2>
 </div>
-
 <div class="container mx-5">
   <%# nav bar %>
   <div class="navbar navbar-expand-sm navbar-light navbar-dark">
     <div class="container-fluid">
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <li class="nav-item active">
@@ -33,34 +30,37 @@
     </div>
   </div>
 </div>
-
 <hr class="container mx-5 mt-0 mb-5">
 
-
-<div>
+<div class="container ms-5">
   <% @bookings.each do |booking| %>
-    <div class="container">
-      <img src="https://picsum.photos/200/300" />
-
+    <div class="card-booking rounded-3 my-5">
+      <% if booking.costume.photo.attached? %>
+        <%=cl_image_tag booking.costume.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "https://knowyourmeme.com/photos/1419425-cosplay" %>
+      <% end %>
+      <div class="index-card-infos">
         <div class="grid w-100 h-80">
-
           <div class="container d-flex justify-content-between align-items-start">
-              <h1><%= booking.costume.name.upcase %></h1>
+
+            <h1><%= booking.costume.name.upcase %></h1>
             <div class="text-end">
-              <p>Total:<p><h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
+              <p>Total:
+                <p>
+                  <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
+                </div>
+              </div>
+              <div class="container">
+                <p>Start date: <%= booking.start_date %></p>
+                <p>End date: <%= booking.end_date %></p>
+              </div>
+              <div class='container text-end'>
+                <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
+              </div>
             </div>
-          </div>
-
-          <div class="container">
-             <p>Start date: <%= booking.start_date %></p>
-             <p>End date: <%= booking.end_date %></p>
-          </div>
-
-          <div class='container text-end'>
-            <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
           </div>
         </div>
       <% end %>
-  </div>
-</div>
+    </div>
 
