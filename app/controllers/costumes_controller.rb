@@ -20,6 +20,12 @@ class CostumesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = [
+      {
+        lat: @costume.latitude,
+        lng: @costume.longitude
+      }
+    ]
   end
 
   def new
