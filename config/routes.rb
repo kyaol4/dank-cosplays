@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :owner do
+    get 'bookings/index'
+  end
   devise_for :views
   devise_for :users
   root to: 'pages#home'
