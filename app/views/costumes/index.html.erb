@@ -5,7 +5,7 @@
 <div class="container d-flex mx-2">
   <div class="cards">
     <% @costumes.each do |costume| %>
-      <div class="index-card">
+      <div class="index-card zoom">
         <% if costume.photo.attached? %>
           <%=cl_image_tag costume.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
@@ -20,6 +20,7 @@
             <h2>¥ <%= costume.price %></h2>
             <p>per day</p>
           </div>
+        </figure>
         </div>
         <p><%= link_to "", costume_path(costume), class:"card-link" %></p>
       </div>

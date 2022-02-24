@@ -1,0 +1,23 @@
+// #zoomIn {
+//   // -webkit-transform: scale(1);
+//   // transform: scale(1);
+//   // -webkit-transition: .3s ease-in-out;
+//   transition: .3s ease-in-out;
+// }
+
+// #zoomIn:hover {
+//   -webkit-transform: scale(1.3);
+//   transform: scale(1.3);
+// }
+
+.zoom {
+  padding: 50px;
+  transition: transform .2s; /* Animation */
+  width: 410px;
+  height: 310px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.1)
+}

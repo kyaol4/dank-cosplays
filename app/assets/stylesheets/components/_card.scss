@@ -67,6 +67,12 @@
   overflow-x: hidden;
 }
 
+@media (max-width: 800px) {
+  .card-booking {
+    width: auto;
+  }
+}
+
 .card-booking img {
   height: auto;
   width: auto;
