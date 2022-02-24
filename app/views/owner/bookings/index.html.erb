@@ -1,28 +1,36 @@
-<h1>Owner::Bookings#index</h1>
-<p>Find me in app/views/owner/bookings/index.html.erb</p>
-<% @bookings.each do |booking| %>
+<h1>Owner Bookings</h1>
 
-    <div class="card-product mt-3 ms-3">
-      <img src="https://picsum.photos/200/300" />
-      <div class="grid w-100 h-80">
-        <div class="container d-flex justify-content-between align-items-start">
-          <h1><%= booking.costume.name.upcase %></h1>
-          <div class="text-end">
-            <p>Total:
-              <p>
-                <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
-              </div>
-            </div>
-            <div class="container">
-              <p>Start date: <%= booking.start_date %></p>
-              <p>End date: <%= booking.end_date %></p>
-            </div>
-            <div class='container text-end d-flex justify-content-between align-items-center'>
-            <div class="booking-actions">
-             <% if booking.pending? %>
+<div class="container d-flex justify-content-end">
+<h3><%= link_to 'Create new costume', new_costume_path, class: 'btn btn-primary' %></h3>
+</div>
+
+<div class="container table-responsive-sm">
+<table class="table table-light table-hover">
+   <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Cosplay</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Total</th>
+      <th style="width: 14%" scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <th class="align-middle" scope="row">1</th>
+      <td class="align-middle"><%= booking.user.email %></td>
+      <td class="align-middle"><%= booking.costume.name.upcase %></td>
+      <td class="align-middle"><%= booking.start_date %></td>
+      <td class="align-middle"><%= booking.start_date %></td>
+      <td class="align-middle"><%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></td>
+      <td class="align-middle"><div class="align-middle">
+      <% if booking.pending? %>
               <%= simple_form_for booking do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
-              <%= f.submit 'Approve', class: 'btn btn-info' %>
+              <%= f.submit 'Accept', class: 'btn btn-info' %>
              <% end %>
              <%= simple_form_for booking do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
@@ -30,11 +38,10 @@
              <% end %>
              <% else %>
                 <p class='booking-tag'><%= booking.status %></p>
-              <% end %>
-              <%# <p><%= booking.status %>
-              <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+              <% end %></td>
+              </div>
+    </tr>
+    <% end %>
+      </tbody>
+</table>
+</div>
