@@ -2,10 +2,10 @@
   <%= link_to "", root_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>BROWSING</h2>
 </div>
-<div class="container d-flex mx-2">
+<div class="container d-flex justify-content-between mx-2">
   <div class="cards">
     <% @costumes.each do |costume| %>
-      <div class="index-card">
+      <div class="index-card flex-grow-1">
         <% if costume.photo.attached? %>
           <%=cl_image_tag costume.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
