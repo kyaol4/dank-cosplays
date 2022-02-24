@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_costume, only: [:create]
   def index
     @bookings = policy_scope(Booking).order(end_date: :desc)
-    # @bookings_as_owner = current_user.bookings_as_owner.order(end_date: :desc)
+    @bookings_as_owner = current_user.bookings_as_owner.order(end_date: :desc)
     # raise
   end
 
@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render '/costumes/new'
+      render '/bookings/new'
     end
   end
 
@@ -28,7 +28,11 @@ class BookingsController < ApplicationController
     # @costume = @booking.costume
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+      if @booking.user == current_user
+        redirect_to bookings_path, notice: 'Booking was successfully updated.'
+      else
+        redirect_to owner_bookings_path
+      end
     else
       render :show
     end

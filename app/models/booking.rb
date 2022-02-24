@@ -8,4 +8,9 @@ class Booking < ApplicationRecord
     approved: 1,
     rejected: 2
   }
+
+  def pending?
+    status == 'pending'
+  end
+
 end
