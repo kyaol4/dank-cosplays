@@ -31,36 +31,37 @@
   </div>
 </div>
 <hr class="container mx-5 mt-0 mb-5">
-
 <div class="container ms-5">
   <% @bookings.each do |booking| %>
     <div class="card-booking rounded-3 my-5">
       <% if booking.costume.photo.attached? %>
         <%=cl_image_tag booking.costume.photo.key, height: 300, width: 400, crop: :fill %>
       <% else %>
-        <%= image_tag "https://knowyourmeme.com/photos/1419425-cosplay" %>
+        <%= image_tag "https://i.kym-cdn.com/photos/images/original/001/419/425/b5a.jpg" %>
       <% end %>
-      <div class="index-card-infos">
-        <div class="grid w-100 h-80">
-          <div class="container d-flex justify-content-between align-items-start">
-
-            <h1><%= booking.costume.name.upcase %></h1>
-            <div class="text-end">
-              <p>Total:
-                <p>
-                  <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
-                </div>
-              </div>
-              <div class="container">
-                <p>Start date: <%= booking.start_date %></p>
-                <p>End date: <%= booking.end_date %></p>
-              </div>
-              <div class='container text-end'>
-                <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
-              </div>
-            </div>
+      <%# <div class="index-card-infos"> %>
+      <div class="grid w-100 h-80">
+        <div class="container d-flex justify-content-between align-items-start">
+          <h1><%= booking.costume.name.upcase %></h1>
+          <div class="text-end">
+            <p>Total: </p>
+            <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
           </div>
         </div>
-      <% end %>
+        <div class="container d-flex justify-content-start">
+          <div class="me-3">
+            <p>From: </p>
+            <p>To: </p>
+          </div>
+          <div>
+            <p><%= booking.start_date %></p>
+            <p><%= booking.end_date %></p>
+          </div>
+        </div>
+        <div class='text-end'>
+          <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
+        </div>
+      </div>
     </div>
-
+  <% end %>
+</div>
