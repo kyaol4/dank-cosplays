@@ -25,7 +25,8 @@ class CostumesController < ApplicationController
     @markers = [
       {
         lat: @costume.latitude,
-        lng: @costume.longitude
+        lng: @costume.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { costume: @costume })
       }
     ]
   end
