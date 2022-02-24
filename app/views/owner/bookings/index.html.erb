@@ -1,0 +1,27 @@
+<h1>Owner::Bookings#index</h1>
+<p>Find me in app/views/owner/bookings/index.html.erb</p>
+
+<% @bookings.each do |booking| %>
+    <div class="card-product mt-3 ms-3">
+      <img src="https://picsum.photos/200/300" />
+      <div class="grid w-100 h-80">
+        <div class="container d-flex justify-content-between align-items-start">
+          <h1><%= booking.costume.name.upcase %></h1>
+          <div class="text-end">
+            <p>Total:
+              <p>
+                <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
+              </div>
+            </div>
+            <div class="container">
+              <p>Start date: <%= booking.start_date %></p>
+              <p>End date: <%= booking.end_date %></p>
+            </div>
+            <div class='container text-end d-flex justify-content-between align-items-center'>
+              <p><%= booking.status %></p>
+              <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>

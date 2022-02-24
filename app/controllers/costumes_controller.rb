@@ -9,6 +9,11 @@ class CostumesController < ApplicationController
         lat: costume.latitude,
         lng: costume.longitude
       }
+    if params[:query].present?
+      @costumes = Costume.search_by_name(params[:query])
+      # Costume.where(name: params[:query])
+    else
+      @costumes = Costume.all
     end
   end
 
