@@ -5,4 +5,15 @@ class Costume < ApplicationRecord
   validates :name, presence: true
   validates :size, presence: true
   validates :price, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [:name],
+    associated_against: {
+      user: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
