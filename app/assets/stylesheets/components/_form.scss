@@ -1,4 +1,19 @@
 #simple-form {
   font-family: "Montserrat";
   font-size: 75%;
+  background: none;
+  color: white;
+}
+
+.form-control {
+  width: 400px;
+}
+
+.search_icon {
+  position: relative;
+  float: right;
+  top: 0px;
+  right: 48px;
+  color: #CCC;
+  opacity: 0.33;
 }

@@ -1,11 +1,11 @@
 <div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>YOUR BOOKINGS</h2>
 </div>
 
 <div class="container mx-5">
   <%# nav bar %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-darnk">
+  <div class="navbar navbar-expand-sm navbar-light navbar-dark">
     <div class="container-fluid">
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,9 +31,15 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
 
+<hr class="container mx-5 mt-0 mb-5">
+
+
+<div>
   <% @bookings.each do |booking| %>
-    <div class="card-product mt-3 ms-3">
+    <div class="container">
       <img src="https://picsum.photos/200/300" />
 
         <div class="grid w-100 h-80">
@@ -55,44 +61,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-
-
- <div>
-      <% @bookings_as_owner.each do |booking| %>
-      <div class="card-product mt-3 ms-3">
-      <img src="https://picsum.photos/200/300" />
-      <div class="grid w-100 h-80">
-        <div class="container d-flex justify-content-between align-items-start">
-          <h1><%= booking.costume.name.upcase %></h1>
-          <div class="text-end">
-            <p>Total:
-              <p>
-                <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
-              </div>
-            </div>
-            <div class="container">
-              <p>Start date: <%= booking.start_date %></p>
-              <p>End date: <%= booking.end_date %></p>
-            </div>
-            <div class='container text-end d-flex justify-content-between align-items-center'>
-            <div class="booking-actions">
-             <% if booking.pending? %>
-              <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
-              <%= f.submit 'Approve', class: 'btn btn-info' %>
-             <% end %>
-             <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-              <%= f.submit 'Reject', class: 'btn btn-info' %>
-             <% end %>
-             <% else %>
-                <p class='booking-tag'><%= booking.status %></p>
-              <% end %>
-              <%# <p><%= booking.status %>
-              <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
-            </div>
-          </div>
-        </div>
-  <% end %>
+  </div>
 </div>
+

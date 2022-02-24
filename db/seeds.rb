@@ -22,99 +22,115 @@ User.create!(
   email: "tobymanley1990@gmail.com",
   password: "password",
   name: "Toby",
-  address: "Tokyo"
+  address: "4-2-8 Shibakoen, Minato"
 )
 User.create!(
   email: "saorimita4@gmail.com",
   password: "password",
   name: "Saori",
-  address: "Tokyo"
+  address: "2-21-1 Shibuya, Shibuya"
 )
 User.create!(
   email: "r.winstonc@gmail.com",
   password: "password",
   name: "Winston",
-  address: "Tokyo"
+  address: "2-11-3 Meguro, Meguro"
 )
 User.create!(
   email: "kyaol4@gmail.com",
   password: "password",
   name: "Dongwook",
-  address: "Tokyo"
+  address: "3-5-1 Marunouchi, Chiyoda"
 )
 
 puts "destroying costumes"
 Costume.destroy_all
 puts "creating costumes"
 # 4.times do
-  costume = Costume.create!(
-    name: "Pikachu Cosplay",
-    size: ["S", "M", "L"].sample,
-    price: rand(1000..10_000),
-    user_id: User.ids.sample,
-  )
-  file = URI.open('https://cdn.shopify.com/s/files/1/1282/4381/products/product-image_13ff26c5-5711-49d3-af2a-2a7e041d8ac8_1024x1024.jpg?v=1463839538')
-  costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
-  puts 'loading photo'
+user_id = User.ids.sample
+costume = Costume.create!(
+  name: "Pikachu Cosplay",
+  size: ["S", "M", "L"].sample,
+  price: rand(1000..10_000),
+  user_id: user_id,
+  address: User.find(user_id).address
+)
+file = URI.open('https://cdn.shopify.com/s/files/1/1282/4381/products/product-image_13ff26c5-5711-49d3-af2a-2a7e041d8ac8_1024x1024.jpg?v=1463839538')
+costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
+puts 'loading photo'
+user_id = User.ids.sample
   costume = Costume.create!(
     name: "Zelda Cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   file = URI.open('https://media.istockphoto.com/photos/princess-zelda-cosplay-picture-id855474834')
   costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
   puts 'loading photo'
+  user_id = User.ids.sample
   costume = Costume.create!(
     name: "Goku Cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   file = URI.open('https://i.pinimg.com/originals/1a/6f/38/1a6f384cde2b5a40234de474e935c12e.jpg')
   costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
   puts 'loading photo'
+  user_id = User.ids.sample
   costume = Costume.create!(
     name: "Ichigo Cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   file = URI.open('https://cdn.worldcosplay.net/724719/rxnwcmofejiqkmxkkzaupgcnzrcosjgrdxsirfkd-740.jpg')
   costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
   puts 'loading photo'
+  user_id = User.ids.sample
   costume = Costume.create!(
     name: "Kimetsu Cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   file = URI.open('https://cdn.worldcosplay.net/293284/orwphsnofmqehzqhmzqmvvpqwjsimtplodevsmdz-740.jpg')
   costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
   puts 'loading photo'
+  user_id = User.ids.sample
   costume = Costume.create!(
     name: "Cell Cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   file = URI.open('https://64.media.tumblr.com/37e42870545e8b71d02cb5f1c1c9cbf2/tumblr_opdw9dMRy51upiu8jo1_1280.jpg')
   costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
   puts 'loading photo'
+  user_id = User.ids.sample
   costume = Costume.create!(
     name: "Attack on Titan - Bread",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   file = URI.open('https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/10/Sasha-Braus-Attack-on-Titan-Cosplay.jpg?q=50&fit=crop&w=740&h=489&dpr=1.5')
   costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
   puts 'loading photo'
+  user_id = User.ids.sample
   costume = Costume.create!(
     name: "Spider-man cosplay",
     size: ["S", "M", "L"].sample,
     price: rand(1000..10_000),
-    user_id: User.ids.sample,
+    user_id: user_id,
+    address: User.find(user_id).address
   )
   # file = URI.open('https://i.etsystatic.com/19750816/r/il/95ae9e/3305956735/il_fullxfull.3305956735_b5yu.jpg')
   # costume.photo.attach(io: file, filename: 'costume.png', content_type: 'image/png')
