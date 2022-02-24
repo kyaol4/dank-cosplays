@@ -1,11 +1,11 @@
 <div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>YOUR BOOKINGS</h2>
 </div>
 
 <div class="container mx-5">
   <%# nav bar %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-darnk">
+  <div class="navbar navbar-expand-sm navbar-light navbar-dark">
     <div class="container-fluid">
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,13 @@
       </div>
     </div>
   </div>
+</div>
 
+<hr class="container mx-5 mt-0 mb-5">
+
+<div>
   <% @bookings.each do |booking| %>
-    <div class="card-product mt-3 ms-3">
+    <div class="container">
       <img src="https://picsum.photos/200/300" />
 
         <div class="grid w-100 h-80">
@@ -58,5 +62,4 @@
         </div>
       <% end %>
     </div>
-  </div>
 </div>

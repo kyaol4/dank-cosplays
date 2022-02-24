@@ -1,7 +1,8 @@
 <div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", root_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+  <%= link_to "", root_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>BROWSING</h2>
 </div>
+
 <div class="container mx-2">
   <div class="cards">
     <% @costumes.each do |costume| %>
@@ -12,18 +13,21 @@
           <%= image_tag "https://www.google.com/url?sa=i&url=https%3A%2F%2Fknowyourmeme.com%2Fphotos%2F1419425-cosplay&psig=AOvVaw2fEvcYHFaeZkbndgxVr92b&ust=1645687310252000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPCZlY6llfYCFQAAAAAdAAAAABAD" %>
         <% end %>
         <div class="index-card-infos">
-          <h2><%= costume.name.upcase %></h2>
-          <p>Size: <%= costume.size %></p>
+          <div class="info-card">
+            <h2><%= costume.name.upcase %></h2>
+            <p>Size: <%= costume.size %></p>
+          </div>
+          <div class="price-card">
+            <h2>¥ <%= costume.price %></h2>
+            <p>per day</p>
+          </div>
         </div>
-        <div class="price-card">
-          <h2>¥ <%= costume.price %></h2>
-          <p>per day</p>
           <p><%= link_to "", costume_path(costume), class:"card-link" %></p>
-        </div>
       </div>
     <% end %>
   </div>
 </div>
+
 <div style="width: 100%; height: 600px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"

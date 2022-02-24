@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.0.2/typeit.min.js"></script>
 
   </head>
-  <body>
+  <body style = "background-color:black;">
    <%# <p class="notice"><%= notice %>
    <%# 　<p class="alert"><%= alert %>
    <div class="navbar navbar-expand-sm navbar-dark navbar-dank">
@@ -27,11 +27,11 @@
       </button>
 
       <div>
-        <%= form_tag costumes_path, method: :get do %> 
-        <i class ="fas fa-search btn btn-btn-dark search_icon"></i>
+        <%= form_tag costumes_path, method: :get do %>
+        <i class ="fas fa-search btn btn-dark search_icon"></i>
         <%= text_field_tag :query, 
         params[:query],
-        class: "form-control rounded-pill", id:"simple-form",
+        class: "form-control rounded-pill border border-light", id:"simple-form",
         placeholder: "Search for a costume" %>
         <% end %> 
       </div>
@@ -60,6 +60,8 @@
       </div>
     </div>
   </div>
+
+  
     <%= yield %>
   </body>
 </html>

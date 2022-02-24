@@ -1,5 +1,5 @@
 <div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", costumes_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-dark me-3" %>
+  <%= link_to "", costumes_path, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
   <h2>VIEWING: <%= @costume.name.upcase %></h2>
 </div>
 <div class="container mt-5">
@@ -41,11 +41,7 @@
     </div>
     <div class="col px-5">
       <div class="card-trip rounded-3 p-3">
-          <div class="container text-start mt-3">
-            <p>Made by <%= @costume.user.name %></p>
-          </div>
         <div class="container d-flex justify-content-lg-between mb-5">
-
           <div class="text-start">
             <h1><%= @costume.name.upcase %></h1>
             <p>Size: <%= @costume.size %></p>
