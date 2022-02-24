@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Create new costume</h1>
+  <%= simple_form_for @costume do |f| %>
+    <%= f.input :name, input_html: {placeholder: 'your costume' } %>
+    <%= f.input :size, input_html: {placeholder: 'size' } %>
+    <%= f.input :price, input_html: {placeholder: 'price' } %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
