@@ -18,7 +18,7 @@
    <%# <p class="notice"><%= notice %>
    <%# 　<p class="alert"><%= alert %>
    <div class="navbar navbar-expand-sm navbar-dark navbar-dank">
-      <div class="container-fluid m-0"> 
+      <div class="container-fluid m-0">
         <a class="navbar-brand mx-3 mt-1" href="/">
           <h1>.DANK COSPLAYS</h1>
         </a>
@@ -29,11 +29,11 @@
       <div>
         <%= form_tag costumes_path, method: :get do %>
         <i class ="fas fa-search btn btn-dark search_icon"></i>
-        <%= text_field_tag :query, 
+        <%= text_field_tag :query,
         params[:query],
         class: "form-control rounded-pill border border-light", id:"simple-form",
         placeholder: "Search for a costume" %>
-        <% end %> 
+        <% end %>
       </div>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,7 +45,7 @@
               <h4><%= link_to "BOOKED", bookings_path, class:"nav-link px-3" %></h4>
             </li>
             <li class="nav-item">
-              <h4><a class="nav-link px-3" href="#">COSPLAY OWNERS</a></h4>
+              <h4><%= link_to "OWNERS", owner_bookings_path, class:"nav-link px-3" %></h4>
             </li>
             <li class="nav-item dropdown px-3">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  
+
     <%= yield %>
   </body>
 </html>
