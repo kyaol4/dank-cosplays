@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-6 cards">
       <% @costumes.each do |costume| %>
-        <div class="index-card">
+      <div class="index-card ms-5 rounded-3 my-5 zoom">
           <% if costume.photo.attached? %>
             <%=cl_image_tag costume.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
