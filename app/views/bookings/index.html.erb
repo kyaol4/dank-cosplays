@@ -54,11 +54,11 @@
         <div class="justify-content-start flex-column">
           <p style="font-size:small">From: <%= booking.start_date %></p>
           <p>To: <%= booking.end_date %></p>
-          <p><%= booking.status %></p>
         </div>
         <div class='text-end'>
           <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
         </div>
+        <p><%= booking.status %></p>
       </div>
     </div>
   <% end %>
