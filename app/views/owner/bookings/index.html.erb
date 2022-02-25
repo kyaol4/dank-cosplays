@@ -1,10 +1,13 @@
-<div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
-  <h2>DASHBOARD</h2>
+<div class="container d-flex justify-content-between ms-0 mt-3">
+  <div class="container d-flex ms-5">
+    <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
+    <h2>DASHBOARD</h2>
+  </div>
+  <div class="container text-end">
+    <h3><%= link_to 'ADD A COSTUME', new_costume_path, class: 'btn btn-primary py-3 px-5' %></h3>
+  </div>
 </div>
-<div class="container d-flex justify-content-end">
-  <h3><%= link_to 'ADD A COSTUME', new_costume_path, class: 'btn btn-primary' %></h3>
-</div>
+
 <div class="container table-responsive-sm mt-3">
   <table class="table">
     <thead class="thead-light">
@@ -58,47 +61,21 @@
                   <%= f.input :status, as: :hidden, input_html: { value: 'Rejected'} %>
                   <%= f.submit 'Reject', class: 'btn btn-info mb-3'%>
                 <% end %>
-                <% else %>
-                  <strong><p class='booking-tag'><%= booking.status.upcase %></p></strong>
+              <% else %>
+                <strong>
+                  <p class='booking-tag'><%= booking.status.upcase %></p>
+                </strong>
               </div>
             <% end %>
           </td>
-        </div>
+        <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-          <th class="align-middle" scope="row">1</th>
-          <td class="align-middle"><%= booking.user.email %></td>
-          <td class="align-middle"><%= booking.costume.name.upcase %></td>
-          <td class="align-middle"><%= booking.start_date %></td>
-          <td class="align-middle"><%= booking.start_date %></td>
-          <td class="align-middle"><%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></td>
-          <td class="align-middle">
-            <div class="align-middle">
-              <% if booking.pending? %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
-                  <%= f.submit 'Accept', class: 'btn btn-info' %>
-                <% end %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                  <%= f.submit 'Reject', class: 'btn btn-info' %>
-                <% end %>
-              <% else %>
-                <p class='booking-tag'><%= booking.status %></p>
-              <% end %></td>
-          </div>
-        </tr>
-      <% end %>
     </tbody>
   </table>
 </div>
-
-<div class="container">
-  <h2>Your Cosplays</h2>
+<div class="container d-sm-flex justify-content-start mt-5 ms-5">
+  <h2 class="ms-5">YOUR COSPLAYS</h2>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="cards">
