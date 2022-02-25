@@ -58,7 +58,7 @@
           <%= simple_form_for [@costume, @booking], html: { id: 'simple-form' } do |f| %>
             <%= f.input :start_date, html5: true %>
             <%= f.input :end_date, html5: true %>
-            <%= f.submit "Send Booking Request", class: 'btn btn-primary mt-2 p-3 d-inline-block' %>
+            <h2><%= f.submit "REQUEST BOOKING", class: 'btn btn-primary mt-5 p-3 d-grid col-6 mx-auto' %></h2>
           <% end %>
         </div>
       </div>

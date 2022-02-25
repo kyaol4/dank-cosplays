@@ -1,23 +1,73 @@
-<h1>Owner Bookings</h1>
-<div class="container d-flex justify-content-end">
-  <h3><%= link_to 'Create new costume', new_costume_path, class: 'btn btn-primary' %></h3>
+<div class="container d-sm-flex justify-content-start mt-3 ms-5">
+  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
+  <h2>DASHBOARD</h2>
 </div>
-<div class="container table-responsive-sm">
-  <table class="table table-light table-hover">
+<div class="container d-flex justify-content-end">
+  <h3><%= link_to 'ADD A COSTUME', new_costume_path, class: 'btn btn-primary' %></h3>
+</div>
+<div class="container table-responsive-sm mt-3">
+  <table class="table">
     <thead class="thead-light">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Customer</th>
-        <th scope="col">Cosplay</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
-        <th scope="col">Total</th>
-        <th style="width: 14%" scope="col">Status</th>
+      <tr class="btm-border">
+        <th scope="col">
+          <p>Customer</p>
+        </th>
+        <th scope="col">
+          <p>Cosplay</p>
+        </th>
+        <th scope="col">
+          <p>Start Date</p>
+        </th>
+        <th scope="col">
+          <p>End Date</p>
+        </th>
+        <th scope="col">
+          <p>Total</p>
+        </th>
+        <th style="width: 14%" scope="col">
+          <p>Status</p>
+        </th>
       </tr>
     </thead>
     <tbody>
       <% @bookings.each do |booking| %>
         <tr>
+          <td class="align-middle">
+            <p><%= booking.user.email %></p>
+          </td>
+          <td class="align-middle">
+            <p><%= booking.costume.name.upcase %></p>
+          </td>
+          <td class="align-middle">
+            <p><%= booking.start_date %></p>
+          </td>
+          <td class="align-middle">
+            <p><%= booking.start_date %></p>
+          </td>
+          <td class="align-middle">
+            <p>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></p>
+          </td>
+          <td class="align-middle">
+            <% if booking.pending? %>
+              <div class="d-flex justify-content-between">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'Approved'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info mb-3'%>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'Rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-info mb-3'%>
+                <% end %>
+                <% else %>
+                  <strong><p class='booking-tag'><%= booking.status.upcase %></p></strong>
+              </div>
+            <% end %>
+          </td>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
           <th class="align-middle" scope="row">1</th>
           <td class="align-middle"><%= booking.user.email %></td>
           <td class="align-middle"><%= booking.costume.name.upcase %></td>
@@ -46,7 +96,7 @@
 </div>
 
 <div class="container">
-  <h2> Your Cosplays</h2>
+  <h2>Your Cosplays</h2>
 </div>
 
 <div class="container">
