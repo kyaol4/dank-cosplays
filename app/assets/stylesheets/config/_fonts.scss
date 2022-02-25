@@ -12,8 +12,11 @@ h1, h2, h3, h4 {
 }
 
 p {
-  color: rgba(240,240,240,.8)
+  color: rgba(240,240,240,.8);
+  font-size: 14px;
+  margin: 0 !important;
 }
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
