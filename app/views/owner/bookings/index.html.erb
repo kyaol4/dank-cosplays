@@ -58,47 +58,21 @@
                   <%= f.input :status, as: :hidden, input_html: { value: 'Rejected'} %>
                   <%= f.submit 'Reject', class: 'btn btn-info mb-3'%>
                 <% end %>
-                <% else %>
-                  <strong><p class='booking-tag'><%= booking.status.upcase %></p></strong>
+              <% else %>
+                <strong>
+                  <p class='booking-tag'><%= booking.status.upcase %></p>
+                </strong>
               </div>
             <% end %>
           </td>
-        </div>
+        <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-          <th class="align-middle" scope="row">1</th>
-          <td class="align-middle"><%= booking.user.email %></td>
-          <td class="align-middle"><%= booking.costume.name.upcase %></td>
-          <td class="align-middle"><%= booking.start_date %></td>
-          <td class="align-middle"><%= booking.start_date %></td>
-          <td class="align-middle"><%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></td>
-          <td class="align-middle">
-            <div class="align-middle">
-              <% if booking.pending? %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
-                  <%= f.submit 'Accept', class: 'btn btn-info' %>
-                <% end %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                  <%= f.submit 'Reject', class: 'btn btn-info' %>
-                <% end %>
-              <% else %>
-                <p class='booking-tag'><%= booking.status %></p>
-              <% end %></td>
-          </div>
-        </tr>
-      <% end %>
     </tbody>
   </table>
 </div>
-
-<div class="container">
-  <h2>Your Cosplays</h2>
+<div class="container d-sm-flex justify-content-start mt-5 ms-5">
+  <h2 class="ms-5">YOUR COSPLAYS</h2>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="cards">
