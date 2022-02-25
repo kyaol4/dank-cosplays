@@ -1,10 +1,13 @@
-<div class="container d-sm-flex justify-content-start mt-3 ms-5">
-  <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
-  <h2>DASHBOARD</h2>
+<div class="container d-flex justify-content-between ms-0 mt-3">
+  <div class="container d-flex ms-5">
+    <%= link_to "", :back, class:"fas fa-angle-left fs-1 align-self text-decoration-none text-light me-3" %>
+    <h2>DASHBOARD</h2>
+  </div>
+  <div class="container text-end">
+    <h3><%= link_to 'ADD A COSTUME', new_costume_path, class: 'btn btn-primary py-3 px-5' %></h3>
+  </div>
 </div>
-<div class="container d-flex justify-content-end">
-  <h3><%= link_to 'ADD A COSTUME', new_costume_path, class: 'btn btn-primary' %></h3>
-</div>
+
 <div class="container table-responsive-sm mt-3">
   <table class="table">
     <thead class="thead-light">
