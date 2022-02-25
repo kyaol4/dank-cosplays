@@ -21,3 +21,10 @@
 .zoom:hover {
   transform: scale(1.1)
 }
+
+
+.preview-img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+}

@@ -1,10 +1,17 @@
 <div class="container">
   <h1>Create new costume</h1>
-  <%= simple_form_for @costume do |f| %>
-    <%= f.input :name, input_html: {placeholder: 'your costume' } %>
-    <%= f.input :size, input_html: {placeholder: 'size' } %>
-    <%= f.input :price, input_html: {placeholder: 'price' } %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+  <div class="row" data-controller="photo-upload">
+    <div class="col-4">
+      <%= simple_form_for @costume do |f| %>
+        <%= f.input :name, input_html: {placeholder: 'your costume' } %>
+        <%= f.input :size, input_html: {placeholder: 'size' } %>
+        <%= f.input :price, input_html: {placeholder: 'price' } %>
+        <%= f.input :photo, as: :file, input_html: {data:{action: "change->photo-upload#showPreview"}} %>
+        <%= f.submit class: 'btn btn-primary mt-2 p-3 d-inline-block'%>
+      <% end %>
+    </div>
+    <div class="col-8">
+      <%= image_tag "https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=", data:{photo_upload_target: "preview"}, class: 'preview-img' %>
+    </div>
+  </div>
 </div>

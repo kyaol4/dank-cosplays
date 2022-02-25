@@ -41,19 +41,20 @@
       <% end %>
       <%# <div class="index-card-infos"> %>
       <div class="grid w-100 h-80">
-      <div style="display:flex; flex-direction:column;">
-        <p>Purchased from <%= booking.costume.user.name %></p>
-        <h1><%= booking.costume.name.upcase %></h1>
-      </div>
+        <div style="display:flex; flex-direction:column;">
+          <p>Purchased from <%= booking.costume.user.name %></p>
+          <h1><%= booking.costume.name.upcase %></h1>
+        </div>
         <%# <div class="container d-flex justify-content-between align-items-start"> %>
-          <div class="text-end">
-            <p>Total: </p>
-            <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
+        <div class="text-end">
+          <p>Total: </p>
+          <h2>¥ <%= booking.costume.price * ((booking.end_date - booking.start_date).to_i) %></h2>
           <%# </div> %>
         </div>
         <div class="justify-content-start flex-column">
-            <p style="font-size:small">From: <%= booking.start_date %></p>
-            <p>To: <%= booking.end_date %></p>
+          <p style="font-size:small">From: <%= booking.start_date %></p>
+          <p>To: <%= booking.end_date %></p>
+          <p><%= booking.status %></p>
         </div>
         <div class='text-end'>
           <p><%= link_to "Details", booking_path(booking), class: 'btn btn-primary px-5 py-2' %></p>
