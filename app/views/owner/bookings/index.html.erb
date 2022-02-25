@@ -54,11 +54,11 @@
             <% if booking.pending? %>
               <div class="d-flex justify-content-between">
                 <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'Approved'} %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
                   <%= f.submit 'Accept', class: 'btn btn-info mb-3'%>
                 <% end %>
                 <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'Rejected'} %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
                   <%= f.submit 'Reject', class: 'btn btn-info mb-3'%>
                 <% end %>
               <% else %>
